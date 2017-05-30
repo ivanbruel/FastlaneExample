@@ -37,13 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		30F0FD591EDD6FE6000E9A12 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30F0FD3C1EDD6FE5000E9A12 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30F0FD431EDD6FE5000E9A12;
-			remoteInfo = FastlaneExample;
-		};
 		30F0FD641EDD6FE6000E9A12 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 30F0FD3C1EDD6FE5000E9A12 /* Project object */;
@@ -326,7 +319,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				30F0FD5A1EDD6FE6000E9A12 /* PBXTargetDependency */,
 			);
 			name = FastlaneExampleTests;
 			productName = FastlaneExampleTests;
@@ -627,11 +619,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		30F0FD5A1EDD6FE6000E9A12 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30F0FD431EDD6FE5000E9A12 /* FastlaneExample */;
-			targetProxy = 30F0FD591EDD6FE6000E9A12 /* PBXContainerItemProxy */;
-		};
 		30F0FD651EDD6FE6000E9A12 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 30F0FD431EDD6FE5000E9A12 /* FastlaneExample */;
