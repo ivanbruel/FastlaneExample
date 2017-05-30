@@ -24,7 +24,7 @@ struct RepositoriesViewModel {
   }
 
   // MARK: - Initializer
-  init(networking: GitHubNetworking) {
+  init(networking: GitHubNetworking = .newNetworking()) {
     self.networking = networking
     self._items = Variable([])
   }
