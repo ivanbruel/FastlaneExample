@@ -63,13 +63,14 @@ extension RepositoriesViewController {
   fileprivate func setup() {
     viewModel.items
       .bind(to: tableView.rx.items(cellIdentifier: DetailTableViewCell.reuseIdentifier,
-                                   cellType: DetailTableViewCell.self)) { row, viewModel, cell in
+                                   cellType: DetailTableViewCell.self)) { _, viewModel, cell in
                                     cell.textLabel?.text = viewModel.name
                                     cell.detailTextLabel?.text = viewModel.stars
       }.disposed(by: disposeBag)
   }
 
   fileprivate func loadRepositories(username: String) {
+    title = username
     viewModel
       .getRepositories(username: "ivanbruel")
       .subscribeResult(onSuccess: nil) { [weak self] error in
@@ -87,4 +88,3 @@ extension RepositoriesViewController {
     present(controller, animated: true, completion: nil)
   }
 }
-
