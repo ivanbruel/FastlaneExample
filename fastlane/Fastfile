@@ -19,12 +19,17 @@ platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     cocoapods
-    
+
   end
 
   desc "Runs all the tests"
   lane :test do
     scan(scheme: "FastlaneExampleTests")
+  end
+
+  desc "Runs all the tests"
+  lane :ui_test do
+    scan(scheme: "FastlaneExampleUITests")
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
@@ -69,5 +74,5 @@ end
 # More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
 # All available actions: https://docs.fastlane.tools/actions
 
-# fastlane reports which actions are used. No personal data is recorded. 
+# fastlane reports which actions are used. No personal data is recorded.
 # Learn more at https://github.com/fastlane/fastlane#metrics
