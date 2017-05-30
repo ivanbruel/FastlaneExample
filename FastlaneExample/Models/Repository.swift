@@ -16,8 +16,8 @@ struct Repository: ImmutableMappable {
   let issuesURL: String
   let defaultBranch: String
   let issueEventsURL: String?
-  let id: Int
-  let owner: Owner
+  let identifier: Int
+  let owner: User
   let eventsURL: String
   let subscriptionURL: String
   let watchers: Int
@@ -80,13 +80,18 @@ struct Repository: ImmutableMappable {
   let language: String
   let hasPages: Bool
 
+  var isSwift: Bool {
+    return language == "Swift"
+  }
+
+  // swiftlint:disable next function_body_length
   init(map: Map) throws {
     keysURL = try map.value("keys_url")
     statusesURL = try map.value("statuses_url")
     issuesURL = try map.value("issues_url")
     defaultBranch = try map.value("default_branch")
     issueEventsURL = try? map.value("issues_events_url")
-    id = try map.value("id")
+    identifier = try map.value("id")
     owner = try map.value("owner")
     eventsURL = try map.value("events_url")
     subscriptionURL = try map.value("subscription_url")

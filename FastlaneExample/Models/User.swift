@@ -9,9 +9,9 @@
 import Foundation
 import ObjectMapper
 
-struct Owner: ImmutableMappable {
+struct User: ImmutableMappable {
 
-  let id: Int
+  let identifier: Int
   let organizationsURL: String
   let receivedEventsURL: String
   let followingURL: String
@@ -30,7 +30,7 @@ struct Owner: ImmutableMappable {
   let followersURL: String
 
   init(map: Map) throws {
-    id = try map.value("id")
+    identifier = try map.value("id")
     organizationsURL = try map.value("organizations_url")
     receivedEventsURL = try map.value("received_events_url")
     followingURL = try map.value("following_url")
