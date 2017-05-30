@@ -43,13 +43,13 @@ extension GitHub: TargetType {
   var validate: Bool {
     return false
   }
-  
+
   var sampleData: Data {
     switch self {
     case .userProfile(let name):
       return "{\"login\": \"\(name)\", \"id\": 100}".data(using: String.Encoding.utf8)!
     case .userRepositories(_):
-      return "[{\"name\": \"Repo Name\"}]".data(using: String.Encoding.utf8)!
+      return JSONReader.data(fromFile: "ivanbruel") ?? Data()
     }
   }
 }
