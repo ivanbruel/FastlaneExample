@@ -755,7 +755,7 @@
 				DEVELOPMENT_TEAM = 995D5UJTTW;
 				INFOPLIST_FILE = FastlaneExample/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.swiftaveiro.FastlaneExample;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.swiftaveiro.ivanbruel.FastlaneExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -769,7 +769,7 @@
 				DEVELOPMENT_TEAM = 995D5UJTTW;
 				INFOPLIST_FILE = FastlaneExample/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.swiftaveiro.FastlaneExample;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.swiftaveiro.ivanbruel.FastlaneExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
