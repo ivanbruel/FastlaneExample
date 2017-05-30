@@ -15,7 +15,7 @@ final class DetailTableViewCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: UITableViewCellStyle.value1, reuseIdentifier: reuseIdentifier)
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
