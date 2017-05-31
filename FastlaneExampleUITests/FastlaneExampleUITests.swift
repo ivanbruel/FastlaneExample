@@ -16,7 +16,7 @@ class FastlaneExampleUITests: XCTestCase {
 
     let app = XCUIApplication()
     app.launchEnvironment = ["UI_TESTING": "true"]
-    XCUIApplication().launch()
+    app.launch()
   }
 
   func testTableView() {

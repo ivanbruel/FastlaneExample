@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow? = {
     let window = UIWindow(frame: UIScreen.main.bounds)
+    print(ProcessInfo.processInfo.environment)
     let networking = ProcessInfo.processInfo.environment["UI_TESTING"] == nil ?
       GitHubNetworking.newNetworking() : GitHubNetworking.newStubbedNetworking()
     let repositoriesViewController =
