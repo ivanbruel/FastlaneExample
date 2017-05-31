@@ -359,7 +359,7 @@
 					30F0FD431EDD6FE5000E9A12 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 995D5UJTTW;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					30F0FD571EDD6FE6000E9A12 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -744,7 +744,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.swiftaveiro.ivanbruel.FastlaneExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5bf37cb4-c961-4f06-8f37-b7eff43fe71c";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development xyz.swiftaveiro.ivanbruel.FastlaneExample";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -753,12 +756,16 @@
 			baseConfigurationReference = EBEBF8158CA5D5370582D9B1 /* Pods-FastlaneExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 995D5UJTTW;
 				INFOPLIST_FILE = FastlaneExample/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.swiftaveiro.ivanbruel.FastlaneExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c46634a5-99a7-4779-b508-47fe4856f0a9";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore xyz.swiftaveiro.ivanbruel.FastlaneExample";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -772,6 +779,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.swiftaveiro.FastlaneExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -785,6 +793,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.swiftaveiro.FastlaneExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -799,6 +808,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = FastlaneExample;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -813,6 +823,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = FastlaneExample;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
