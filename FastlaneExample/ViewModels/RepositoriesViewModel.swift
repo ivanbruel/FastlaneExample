@@ -16,17 +16,17 @@ struct RepositoriesViewModel {
 
   // MARK: - Private Properties
   fileprivate let networking: GitHubNetworking
-  fileprivate let _items: Variable<[RepositoryItemViewModel]>
+  fileprivate let viewModels: Variable<[RepositoryItemViewModel]>
 
   // MARK: - Public Properties
   var items: Observable<[RepositoryItemViewModel]> {
-    return _items.asObservable()
+    return viewModels.asObservable()
   }
 
   // MARK: - Initializer
   init(networking: GitHubNetworking = .newNetworking()) {
     self.networking = networking
-    self._items = Variable([])
+    self.viewModels = Variable([])
   }
 }
 
@@ -45,7 +45,7 @@ extension RepositoriesViewModel {
           return lhs.stargazersCount > rhs.stargazersCount
         })
       }
-      .do(onNext: { self._items.value = $0.map { RepositoryItemViewModel(repository: $0) } })
+      .do(onNext: { self.viewModels.value = $0.map { RepositoryItemViewModel(repository: $0) } })
       .map { _ in Void() }
       .mapResult(RepositoriesError.self)
   }
