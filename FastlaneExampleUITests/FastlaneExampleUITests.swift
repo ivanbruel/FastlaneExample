@@ -22,9 +22,6 @@ class FastlaneExampleUITests: XCTestCase {
   func testTableView() {
     let app = XCUIApplication()
 
-    let fastlaneExample = app.tables.staticTexts["FastlaneExample"]
-    XCTAssert(fastlaneExample.exists)
-
     XCTAssert(app.tables.cells.count == 30)
   }
 

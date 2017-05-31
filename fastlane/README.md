@@ -39,7 +39,7 @@ Runs all the tests
 ```
 fastlane ios ui_test
 ```
-Runs all the tests
+Runs all the UI tests
 ### ios beta
 ```
 fastlane ios beta
