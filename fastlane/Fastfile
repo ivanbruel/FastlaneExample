@@ -34,23 +34,18 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    match(type: "appstore") # more information: https://codesigning.guide
+    match(type: "appstore")
     increment_build_number(build_number: Time.now.getutc.to_i)
-    gym(scheme: "FastlaneExample") # Build your app - more options available
+    gym(scheme: "FastlaneExample")
     pilot(skip_waiting_for_build_processing: true)
-
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
   end
 
   desc "Deploy a new version to the App Store"
   lane :release do
     match(type: "appstore")
-    # snapshot
     increment_build_number(build_number: Time.now.getutc.to_i)
-    gym(scheme: "FastlaneExample") # Build your app - more options available
+    gym(scheme: "FastlaneExample")
     deliver(force: true)
-    # frameit
   end
 
   # You can define as many lanes as you want
