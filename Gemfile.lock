@@ -1,5 +1,6 @@
-PATH
-  remote: ../fastlane
+GIT
+  remote: https://github.com/ivanbruel/fastlane
+  revision: da3a4a5399377c4bc38f7a408343f317692c8f87
   specs:
     fastlane (2.36.0)
       CFPropertyList (>= 2.3, < 3.0.0)
@@ -122,7 +123,7 @@ GEM
       domain_name (~> 0.5)
     httpclient (2.8.3)
     hurley (0.2)
-    i18n (0.8.1)
+    i18n (0.8.4)
     json (2.1.0)
     jwt (1.5.6)
     little-plugger (1.1.4)
