@@ -4,9 +4,7 @@ language: objective-c
 install:
 - bundle install
 script:
-- bundle exec fastlane test
-- bundle exec fastlane ui_test
-- bundle exec fastlane beta
+- bundle exec fastlane beta --verbose
 before_install:
 - openssl aes-256-cbc -K $encrypted_e90a868793b8_key -iv $encrypted_e90a868793b8_iv
   -in fastlane/.env.enc -out fastlane/.env -d
