@@ -140,6 +140,8 @@ Since we have brand new provisioning profiles and certificates, let's set them o
 
 Finally, since iTunes Connect is anal about incremental build numbers on build uploads, we should add `increment_build_number(build_number: Time.now.getutc.to_i)` to avoid having to do it manually everytime the CD runs.
 
+Let's update `.travis.yml` and add `bundle exec fastlane beta` after the ui_test lane.
+
 # 6) Improvements
 
 With fastlane you can always improve your workflow. Usually the first obvious improvement would be to apply GitFlow to our CI/CD pipeline, where we would test on every branch, but only deploy a beta version on the development branch and a release version on the master branch.
