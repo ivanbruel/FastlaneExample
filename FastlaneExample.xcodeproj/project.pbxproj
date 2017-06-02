@@ -747,6 +747,7 @@
 				PROVISIONING_PROFILE = "0c8f2074-9b9f-4869-8615-a3c2abf9e995";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development xyz.swiftaveiro.ivanbruel.FastlaneExample";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -764,6 +765,7 @@
 				PROVISIONING_PROFILE = "455f388f-f0c6-48d5-9275-02c26308f4d5";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore xyz.swiftaveiro.ivanbruel.FastlaneExample";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

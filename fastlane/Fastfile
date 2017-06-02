@@ -63,6 +63,7 @@ platform :ios do
     else
       match(type: "appstore")
     end
+    increment_build_number(build_number: Time.now.getutc.to_i)
     # snapshot
     gym(scheme: "FastlaneExample") # Build your app - more options available
     deliver(force: true)
