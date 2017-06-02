@@ -61,7 +61,7 @@ Fastlane will ask your for your Apple ID and your password which will be saved t
 
 `Password (for ivan.bruel@gmail.com): **********`
 
-In case you have multiple teams select the one you created the app on and then confirm your app identifier. Also feel free to execute `echo 'itc_team_id "YOURTEAMID"' >> fastlane/Appfile'`` to help out in future steps.
+In case you have multiple teams select the one you created the app on and then confirm your app identifier. Also feel free to execute `echo 'itc_team_id "YOURTEAMID"' >> fastlane/Appfile'` to help out in future steps.
 
 # 3) CLI testing
 
