@@ -176,6 +176,6 @@ etc.
 
 # Remarks
 
-Here's an example of a build that got deployed https://travis-ci.org/ivanbruel/FastlaneExample/builds/238570562 and its code on the `test-run`  branch.
+Here's an example of a build that got deployed https://travis-ci.org/ivanbruel/FastlaneExample/builds/238577118 and its code on the `test-run`  branch.
 I've attached to this project Unbabel's iOS Fastfile and .gitlab-ci.yml that we currently use to shed some light on the topic!
 Hope you enjoyed this workshop and feel free to ping @ivanbruel on twitter!
