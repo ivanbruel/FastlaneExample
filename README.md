@@ -131,11 +131,12 @@ Match requires an additional repo to store encrypted versions of your certificat
 After creating the repo run `bundle exec fastlane match init` in order to setup the match gem. When it prompts for the repo url, paste your recently created repo (e.g. https://github.com/ivanbruel/FastlaneExampleMatch).
 
 Now that we have Match setup, let's start creating the development and appstore profiles. Match will ask you for a password to encrypt certificates and provisioning profiles, be sure to save it and add it to the .travis.yml.
+
+In order to take advantage of match's automatic code signing, we need to add `match(type: "appstore")` before `gym` in the beta and release lanes.
+
 `travis encrypt MATCH_PASSWORD=<YOUR_MATCH_PASSWORD> --add`
 
 Since we have brand new provisioning profiles and certificates, let's set them on Xcode by removing automatic manage signing and selecting the match generated profiles. You can test it and see if it compiles in debug mode.
-
-In order to take advantage of match's automatic code signing, we need to add `match(type: "appstore")` before `gym` in the beta and release lanes.
 
 Finally, since iTunes Connect is anal about incremental build numbers on build uploads, we should add `increment_build_number(build_number: Time.now.getutc.to_i)` to avoid having to do it manually everytime the CD runs.
 
