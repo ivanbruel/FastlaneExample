@@ -22,7 +22,7 @@ To make sure everyone understands how to add CI/CD processes to an app, we're pr
 
 This app already contains both unit tests and UI tests in order to take advantage of a CI pipeline.
 
-As such, be sure to fork this repo into your own account so you can manage the CI/CD pipeline.
+**As such, be sure to fork this repo into your own account so you can manage the CI/CD pipeline.**
 
 # 1) Project Changes
 
