@@ -138,6 +138,27 @@ In order to take advantage of match's automatic code signing, we need to add `ma
 
 `travis encrypt MATCH_PASSWORD=<YOUR_MATCH_PASSWORD> --add`
 
+Warning: https://docs.travis-ci.com/user/common-build-problems/#Mac%3A-macOS-Sierra-(10.12)-Code-Signing-Errors
+Travis CI has some issues with the keychain "allow" popup, as such we need to add the following lines for match (instead of the simple command above):
+
+```
+create_keychain(
+      name: "CI"
+      password: ENV["MATCH_PASSWORD"],
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
+
+    match(
+      type: "appstore",
+      keychain_name: "CI",
+      keychain_password: ENV["MATCH_PASSWORD"],
+      readonly: true
+    )
+```
+
 Since we have brand new provisioning profiles and certificates, let's set them on Xcode by removing automatic manage signing and selecting the match generated profiles. You can test it and see if it compiles in debug mode.
 
 Finally, since iTunes Connect is anal about incremental build numbers on build uploads, we should add `increment_build_number(build_number: Time.now.getutc.to_i)` to avoid having to do it manually everytime the CD runs. To make this work, be sure to change the versioning system to Apple Generic.
