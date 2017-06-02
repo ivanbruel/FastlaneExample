@@ -45,7 +45,6 @@ Since we now have bundler installed we can add the dependencies into a `Gemfile`
 source 'https://rubygems.org'
 
 gem 'fastlane'
-gem 'cocoapods'
 
 ```
 
@@ -62,6 +61,8 @@ Fastlane will ask your for your Apple ID and your password which will be saved t
 `Password (for ivan.bruel@gmail.com): **********`
 
 In case you have multiple teams select the one you created the app on and then confirm your app identifier. Also feel free to execute `echo 'itc_team_id "YOURTEAMID"' >> fastlane/Appfile'` to help out in future steps.
+
+Be sure to remove the `cocoapods` call from the before_script, as we're pushing the cocoapods code to the git repo already.
 
 # 3) CLI testing
 
