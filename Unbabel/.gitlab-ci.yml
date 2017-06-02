@@ -1,0 +1,30 @@
+# Allows the CI to push to Git the version code changes
+before_script:
+  - git remote set-url --push origin $(echo $CI_BUILD_REPO | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#')
+  - bundle install
+  - bundle update
+
+stages:
+  - test
+  - deploy
+
+unit-test:
+  stage: test
+  script:
+    - bundle exec fastlane test
+  after_script:
+    - bundle exec fastlane codecov
+
+deploy-itunes:
+  stage: deploy
+  script:
+    - bundle exec fastlane itunes
+  only:
+    - master
+
+deploy-fabric:
+  stage: deploy
+  script:
+    - bundle exec fastlane fabric
+  only:
+    - development
