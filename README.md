@@ -46,6 +46,7 @@ Since we now have bundler installed we can add the dependencies into a `Gemfile`
 source 'https://rubygems.org'
 
 gem 'fastlane'
+gem 'cocoapods'
 
 ```
 
@@ -141,7 +142,7 @@ Since we have brand new provisioning profiles and certificates, let's set them o
 
 Finally, since iTunes Connect is anal about incremental build numbers on build uploads, we should add `increment_build_number(build_number: Time.now.getutc.to_i)` to avoid having to do it manually everytime the CD runs.
 
-Let's update `.travis.yml` and add `bundle exec fastlane beta` after the ui_test lane.
+Let's update `.travis.yml` and add `bundle exec fastlane release` after the ui_test lane.
 
 # 6) Improvements
 
