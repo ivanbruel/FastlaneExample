@@ -1,5 +1,6 @@
 Continuous Integration and Delivery with Fastlane
 =========
+[![Build Status](https://travis-ci.org/ivanbruel/FastlaneExample.svg?branch=master)](https://travis-ci.org/ivanbruel/FastlaneExample)
 
 > fastlane is a tool for iOS and Android developers to automate tedious tasks like generating screenshots, dealing with provisioning profiles, and releasing your application. - Felix Krause @KrausFx
 
@@ -151,5 +152,6 @@ etc.
 
 # Remarks
 
+Here's an example of a build that got deployed https://travis-ci.org/ivanbruel/FastlaneExample/builds/238570562 and its code on the `test-run`  branch.
 I've attached to this project Unbabel's iOS Fastfile and .gitlab-ci.yml that we currently use to shed some light on the topic!
 Hope you enjoyed this workshop and feel free to ping @ivanbruel on twitter!
