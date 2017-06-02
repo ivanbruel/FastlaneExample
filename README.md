@@ -75,6 +75,10 @@ In order for the CI to work we need to create a `FastlaneExampleTests` and a `Fa
 ![Create Schemes](http://i.imgur.com/Z6tj9Hu.png)
 ![Share](http://i.imgur.com/eRooJLJ.png)
 
+Make sure to tick the `Run` on both test schemes
+
+![Run](http://i.imgur.com/4RncnDZ.png)
+
 Let's update the fastlane test lane into: `scan(scheme: "FastlaneExampleTests")` and execute it `bundle exec fastlane test`
 
 Since it all seems to be working, we should add a UI testing lane to make sure our app is working correctly in regards to the UI as well.
