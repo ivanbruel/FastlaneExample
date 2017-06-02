@@ -34,6 +34,8 @@ end
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
+    match(type: "appstore")
+    increment_build_number(build_number: Time.now.getutc.to_i)
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "FastlaneExample") # Build your app - more options available
     pilot
@@ -44,6 +46,8 @@ end
 
   desc "Deploy a new version to the App Store"
   lane :release do
+    match(type: "appstore")
+    increment_build_number(build_number: Time.now.getutc.to_i)
     # match(type: "appstore")
     # snapshot
     gym(scheme: "FastlaneExample") # Build your app - more options available
