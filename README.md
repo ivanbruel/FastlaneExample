@@ -272,7 +272,7 @@ if is_ci
 else
   match(type: "appstore")
 end
-
+```
 
 36. Increment build number: `increment_build_number(build_number: Time.now.getutc.to_i)`
 37. Set the versioning system to Apple Generic
