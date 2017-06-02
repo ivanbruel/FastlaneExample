@@ -35,7 +35,7 @@ end
   desc "This will also make sure the profile is up to date"
   lane :beta do
     create_keychain(
-      name: "CI"
+      name: "CI",
       password: ENV["MATCH_PASSWORD"],
       default_keychain: true,
       unlock: true,
