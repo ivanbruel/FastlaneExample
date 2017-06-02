@@ -26,6 +26,8 @@ As such, be sure to fork this repo into your own account so you can manage the C
 
 # 1) Project Changes
 
+Install the cocoapod dependencies: `pod install
+
 Since the end-game is to publish the app to iTunes, we all need to change the bundle identifier of the app into something unique. (e.g. `xyz.swiftaveiro.ivanbruel.FastlaneExample`)
 
 ![Change scheme](http://i.imgur.com/qiLDeI8.png)
@@ -201,7 +203,7 @@ gem 'fastlane'
 gem 'cocoapods'
 ```
 
-8. Install dependencies: `bundle install`
+8. Install dependencies: `bundle install` and `pod install`
 9. Inititialize fastlane: `bundle exec fastlane init`
 10. Set Apple ID
 11. Set Password
