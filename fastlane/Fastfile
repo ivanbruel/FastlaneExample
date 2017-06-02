@@ -34,21 +34,25 @@ end
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    create_keychain(
-      name: "CI",
-      password: ENV["MATCH_PASSWORD"],
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      add_to_search_list: true
-    )
+    if is_ci
+      create_keychain(
+        name: "CI",
+        password: ENV["MATCH_PASSWORD"],
+        default_keychain: true,
+        unlock: true,
+        timeout: 3600,
+        add_to_search_list: true
+      )
 
-    match(
-      type: "appstore",
-      keychain_name: "CI",
-      keychain_password: ENV["MATCH_PASSWORD"],
-      readonly: true
-    )
+      match(
+        type: "appstore",
+        keychain_name: "CI",
+        keychain_password: ENV["MATCH_PASSWORD"],
+        readonly: true
+      )
+    else
+      match(type: "appstore")
+    end
     increment_build_number(build_number: Time.now.getutc.to_i)
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "FastlaneExample") # Build your app - more options available
@@ -60,21 +64,25 @@ end
 
   desc "Deploy a new version to the App Store"
   lane :release do
-    create_keychain(
-      name: "CI",
-      password: ENV["MATCH_PASSWORD"],
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      add_to_search_list: true
-    )
+    if is_ci
+      create_keychain(
+        name: "CI",
+        password: ENV["MATCH_PASSWORD"],
+        default_keychain: true,
+        unlock: true,
+        timeout: 3600,
+        add_to_search_list: true
+      )
 
-    match(
-      type: "appstore",
-      keychain_name: "CI",
-      keychain_password: ENV["MATCH_PASSWORD"],
-      readonly: true
-    )
+      match(
+        type: "appstore",
+        keychain_name: "CI",
+        keychain_password: ENV["MATCH_PASSWORD"],
+        readonly: true
+      )
+    else
+      match(type: "appstore")
+    end
     increment_build_number(build_number: Time.now.getutc.to_i)
     # match(type: "appstore")
     # snapshot
