@@ -1,6 +1,6 @@
 Continuous Integration and Delivery with Fastlane
 =========
-[![Build Status](https://travis-ci.org/ivanbruel/FastlaneExample.svg?branch=master)](https://travis-ci.org/ivanbruel/FastlaneExample)
+[![Build Status](https://travis-ci.org/ivanbruel/FastlaneExample.svg?branch=test-run)](https://travis-ci.org/ivanbruel/FastlaneExample)
 
 > fastlane is a tool for iOS and Android developers to automate tedious tasks like generating screenshots, dealing with provisioning profiles, and releasing your application. - Felix Krause @KrausFx
 
@@ -72,8 +72,8 @@ Be sure to remove the `cocoapods` call from the before_script, as we're pushing 
 
 In order to speed up unit testing let's remove the `FastlaneExample` target dependency from the `FastlaneExampleTests` target and set the host application to none.
 
-![Remove Dependency](http://i.imgur.com/GZFywXE.png)
 ![Host app](http://i.imgur.com/6wPn14D.png)
+![Remove Dependency](http://i.imgur.com/GZFywXE.png)
 
 In order for the CI to work we need to create a `FastlaneExampleTests` and a `FastlaneExampleUITests` scheme and make them shared.
 
