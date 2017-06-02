@@ -142,21 +142,25 @@ Warning: https://docs.travis-ci.com/user/common-build-problems/#Mac%3A-macOS-Sie
 Travis CI has some issues with the keychain "allow" popup, as such we need to add the following lines for match (instead of the simple command above):
 
 ```
-create_keychain(
-      name: "CI"
-      password: ENV["MATCH_PASSWORD"],
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      add_to_search_list: true
-    )
+if is_ci
+  create_keychain(
+    name: "CI",
+    password: ENV["MATCH_PASSWORD"],
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600,
+    add_to_search_list: true
+  )
 
-    match(
-      type: "appstore",
-      keychain_name: "CI",
-      keychain_password: ENV["MATCH_PASSWORD"],
-      readonly: true
-    )
+  match(
+    type: "appstore",
+    keychain_name: "CI",
+    keychain_password: ENV["MATCH_PASSWORD"],
+    readonly: true
+  )
+else
+  match(type: "appstore")
+end
 ```
 
 Since we have brand new provisioning profiles and certificates, let's set them on Xcode by removing automatic manage signing and selecting the match generated profiles. You can test it and see if it compiles in debug mode.
@@ -179,3 +183,103 @@ etc.
 Here's an example of a build that got deployed https://travis-ci.org/ivanbruel/FastlaneExample/builds/238577118 and its code on the `test-run`  branch.
 I've attached to this project Unbabel's iOS Fastfile and .gitlab-ci.yml that we currently use to shed some light on the topic!
 Hope you enjoyed this workshop and feel free to ping @ivanbruel on twitter!
+
+# TL:DR
+
+1. Remove Two-Factor authentication (Fastlane issue atm)
+2. Change project bundle ID
+3. Create app on Member Center
+4. Create app on iTunes Connect
+5. Install ruby: `\curl -sSL https://get.rvm.io | bash -s stable --ruby`
+6. Install bundler `gem install bundler`
+7. Gemfile: 
+
+```
+source 'https://rubygems.org'
+
+gem 'fastlane'
+gem 'cocoapods'
+```
+
+8. Install dependencies: `bundle install`
+9. Inititialize fastlane: `bundle exec fastlane init`
+10. Set Apple ID
+11. Set Password
+12. Set your iTunes Connect Team ID: `echo 'itc_team_id "YOUR_TEAM_ID"' >> fastlane/Appfile'`
+13. Remove cocoapods from `Fastfile`
+14. Remove `FastlaneExample` from `FastlaneExampleTests`' target dependencies
+15. Set host application to none
+16. Create `FastlaneExampleTests` scheme
+17. Edit `FastlaneExampleTests` scheme and make sure Run is ticked
+18. Create `FastlaneExampleUITests` scheme
+19. Edit `FastlaneExampleUITests` scheme and make sure Run is ticked
+20. Set `FastlaneExampleTests` and `FastlaneExampleUITests` schemes as shared
+21. Update the `test` lane with `scan(scheme: "FastlaneExampleTests")`
+22. Execute the unit tests: `bundle exec fastlane test`
+23. Add a `ui_test` lane to `Fastfile`
+
+```
+desc "Runs all the UI tests"
+lane :ui_test do
+  scan(scheme: "FastlaneExampleUITests")
+end
+```
+
+24. Execute the UI tests: `bundle exec fastlane ui_test`
+25. Activate travis
+26. Create .travis.yml
+
+```
+osx_image: xcode8.3
+language: objective-c
+install:
+  - bundle install
+script:
+  - bundle exec fastlane test
+  - bundle exec fastlane ui_test
+```
+
+27. Push your code to your fork
+28. Install Travis CLI `gem install travis`
+29. Encrypt your iTunes password: `travis encrypt FASTLANE_PASSWORD=<YOUR_APPLE_ID_PASSWORD> --add`
+30. Create github repo for certificates: https://github.com/new
+31. Initialize Match `bundle exec fastlane match init`
+32. Create development certificate `bundle exec fastlane match development`
+33. Create distribution certificate `bundle exec fastlane match appstore`
+34. Encrypt Match password: `travis encrypt MATCH_PASSWORD=<YOUR_MATCH_PASSWORD> --add`
+35. Update Fastfile:
+
+```
+if is_ci
+  create_keychain(
+    name: "CI",
+    password: ENV["MATCH_PASSWORD"],
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600,
+    add_to_search_list: true
+  )
+
+  match(
+    type: "appstore",
+    keychain_name: "CI",
+    keychain_password: ENV["MATCH_PASSWORD"],
+    readonly: true
+  )
+else
+  match(type: "appstore")
+end
+
+
+36. Increment build number: `increment_build_number(build_number: Time.now.getutc.to_i)`
+37. Set the versioning system to Apple Generic
+38. Update .travis.yml
+
+```
+script:
+- bundle exec fastlane test
+- bundle exec fastlane ui_test
+- bundle exec fastlane release
+```
+
+39. Deploy 🚀
