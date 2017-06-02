@@ -140,7 +140,9 @@ In order to take advantage of match's automatic code signing, we need to add `ma
 
 Since we have brand new provisioning profiles and certificates, let's set them on Xcode by removing automatic manage signing and selecting the match generated profiles. You can test it and see if it compiles in debug mode.
 
-Finally, since iTunes Connect is anal about incremental build numbers on build uploads, we should add `increment_build_number(build_number: Time.now.getutc.to_i)` to avoid having to do it manually everytime the CD runs.
+Finally, since iTunes Connect is anal about incremental build numbers on build uploads, we should add `increment_build_number(build_number: Time.now.getutc.to_i)` to avoid having to do it manually everytime the CD runs. To make this work, be sure to change the versioning system to Apple Generic.
+
+![versioning](http://i.imgur.com/gJ8VXsa.png)
 
 Let's update `.travis.yml` and add `bundle exec fastlane release` after the ui_test lane.
 
