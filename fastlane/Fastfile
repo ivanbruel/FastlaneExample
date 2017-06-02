@@ -27,7 +27,7 @@ platform :ios do
   end
 
   desc "Runs the UI tests"
-  lane :testUI do
+  lane :ui_test do
     scan(scheme: "FastlaneExampleUITests")
   end
 
