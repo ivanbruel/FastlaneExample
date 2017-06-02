@@ -188,7 +188,8 @@ Hope you enjoyed this workshop and feel free to ping @ivanbruel on twitter!
 
 # TL:DR
 
-1. Remove Two-Factor authentication (Fastlane issue atm)
+0. Remove Two-Factor authentication (Fastlane issue atm)
+1. Fork the project
 2. Change project bundle ID
 3. Create app on Member Center
 4. Create app on iTunes Connect
